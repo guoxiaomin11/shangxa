@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/jquery.contextMenu.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/skins.css" rel="stylesheet">
+		<link href="css/ry-ui.css" rel="stylesheet">
+		<link href="css/layui.css" rel="stylesheet">
+	</head>
+	<body class="fixed-sidebar full-height-layout gray-bg skin-blue">
+<div id="wrapper">
+
+    <!--左侧导航开始-->
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="nav-close">
+            <i class="fa fa-times-circle"></i>
+        </div>
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="logo">
+				     <span class="logo-lg">RuoYi</span>
+            	</li>
+            	<li>
+            		<div class="user-panel">
+            			<a class="menuItem" title="个人中心" href=""> 
+            				<div class="hide">个人中心</div>
+					        <div class="pull-left image">
+		                    	<img src="img/profile.jpg" class="img-circle" alt="User Image">
+					        </div>
+				        </a>
+				        <div class="pull-left info">
+				          <p>admin</p>
+				          <a href="#"><i class="layui-icon layui-icon-circle-dot"></i> 在线</a>
+				          <a href="logout" style="padding-left:5px;"><i class="layui-icon layui-icon-close"></i> 注销</a>
+				        </div>
+				    </div>
+            	</li>
+                 <li class="active">
+                    <a href="index.html">
+                    	<i class="layui-icon layui-icon-home"></i>
+                    	<span class="nav-label">主页</span>
+                    	<span style="margin-left: 80px;" class="layui-icon layui-icon-triangle-d"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a class="menuItem" href="/system/main">了解若依</a></li>
+                    </ul>
+                </li>
+                <li>
+                	<a href="#">
+                		<i class="layui-icon layui-icon-set-fill"></i>
+                    	<span class="nav-label">系统管理</span> 
+                    	<span style="margin-left: 52px;" class="layui-icon layui-icon-triangle-d"></span>
+                	</a>
+                   <ul class="nav nav-second-level collapse">
+						<li>
+							<a class="" href="User.html">用户管理</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">角色管理</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">菜单管理</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">部门管理</a>	
+						</li>
+						<li>
+							<a class="menuItem" href="">岗位管理</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">字典管理</a>		
+						</li>
+						<li>
+							<a class="menuItem" href="">参数设置</a>	
+						</li>
+						<li>
+							<a class="menuItem" href="">通知公告</a>
+						</li>
+						<li>
+							<a href="#">日志管理<span style="margin-left: 52px;" class="layui-icon layui-icon-triangle-d"></span></a>
+							<ul class="nav nav-third-level">
+								<li><a class="menuItem" href="">操作日志</a></li>
+								<li><a class="menuItem" href="">登录日志</a></li>
+							</ul>
+						</li>
+					</ul>
+                </li>
+                <li>
+                	<a href="#">
+                		<i class="layui-icon layui-icon-video"></i>
+                    	<span class="nav-label">系统监控</span> 
+                    	<span style="margin-left: 52px;" class="layui-icon layui-icon-triangle-d"></span>
+                	</a>
+                   <ul class="nav nav-second-level collapse">
+						<li>
+							<a class="menuItem" href="">在线用户</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">定时任务</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">数据监控</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">服务监控</a>
+						</li>
+					</ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="height: 2000px;" id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2" style="color:#FFF;" href="#" title="收起菜单">
+                    	<i class="layui-icon layui-icon-menu-fill"></i>
+                    </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right welcome-message">
+				    <li><a title="视频教程" href="http://doc.ruoyi.vip/#/standard/spjc" target="_blank"><i class="layui-icon layui-icon-video"></i> 视频教程</a></li>
+                    <li><a title="开发文档" href="http://doc.ruoyi.vip" target="_blank"><i class="layui-icon layui-icon-help"></i> 开发文档</a></li>
+	                <li><a title="全屏显示" href="javascript:void(0)" id="fullScreen"><i class="layui-icon layui-icon-snowflake"></i>全屏显示</a></li>
+                    <li class="dropdown user-menu">
+						<a href="javascript:void(0)" class="dropdown-toggle" data-hover="dropdown">
+							<img src="img/profile.jpg" class="user-image">
+							<span class="hidden-xs">若依</span>
+						</a>
+						<ul class="dropdown-menu">
+							<li class="mt5">
+								<a href="" class="menuItem">
+								<i class="layui-icon layui-icon-username"></i> 个人中心</a>
+							</li>
+							<li>
+								<a onclick="resetPwd()" class="menuItem">
+								<i class="layui-icon layui-icon-password"></i> 修改密码</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="aaa.html">
+								<i class="layui-icon layui-icon-close-fill"></i> 退出登录</a>
+							</li>
+						</ul>
+					</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <button class="roll-nav roll-left tabLeft">
+                <i class="layui-icon layui-icon-prev"></i>
+            </button>
+            <nav class="page-tabs menuTabs">
+                <div class="page-tabs-content">
+                    <a href="javascript:;" class="active menuTab" data-id="/system/main">首页</a>
+                </div>
+            </nav>
+            <button class="roll-nav roll-right tabRight">
+                <i class="layui-icon layui-icon-next"></i>
+            </button>
+            <a href="#" class="roll-nav roll-right tabReload"><i class="layui-icon layui-icon-refresh-3"></i> 刷新</a>
+        </div>
+        
+        <a id="ax_close_max" class="ax_close_max" href="#" title="关闭全屏"> <i class="fa fa-times-circle-o"></i> </a>             
+        <div class="row mainContent" id="content-main">
+            <pre style="float:left;width: 1100px; height: 175px;margin-left: 20px; margin-top: 20px; border-left: 5px solid #999999; border-bottom: 0px; border-top: 0px; border-right: 0px;" class="layui-code layui-box layui-code-view">
+            	<p style="float: left;margin-left: 20px; font-size: 18px; color:#fbbe59;margin-top: 5px;">领取阿里云通用云产品1888优惠券</p>
+            	<p style="float: left;margin-left: 20px; font-size: 18px; color:#8f7ab7;margin-top: -10px;"><a href="">https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=brki8iof</a></p>
+            	<p style="float: left;margin-left: 20px; font-size: 18px; color:#fbbe59;margin-top: -3px;">领取腾讯云通用云产品2860优惠券 </p>
+            	<p style="float: left;margin-left: 20px; font-size: 18px; color:#8f7ab7;margin-top: -2px;"><a href="">https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=brki8iof</a></p>
+            	<p style="float: left;margin-left: 20px; font-size: 18px; color:#fbbe59;margin-top: 5px;">领取腾讯云通用云产品2860优惠券 </p>
+            	<p style="float: left;margin-left: 20px; font-size: 18px; color:#8f7ab7;margin-top: 0px;"><a href="">https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=brki8iof</a></p>
+            	<p style="float: left;margin-left: 20px; font-size: 18px; color: red;margin-top: 10px;">云产品通用红包，可叠加官网常规优惠使用。(仅限新用户)</p>
+            </pre>
+            <hr class="layui-bg-blue">
+        </div>
+        
+        <div style="float: left; margin-top: -1620px; height: 300px;" class="layui-row layui-col-space5">
+		    <div class="layui-col-md3">
+		      <div style="width: 280px; height: 340;" class="grid-demo grid-demo-bg1">
+		      	<p style="font-size: 24px;">Hello,Guest</p>
+		      	<p style="float: none; font-size: 12px; margin-top: 18px;">移动设备访问请扫描以下二维码：</p>
+		      	<p><img style="float: left; width: 230px; height: 220px; margin-top: 10px;" src="img/5.gif"></p>
+		      </div>
+		    </div>
+		    <div class="layui-col-md5">
+		      <div class="grid-demo">
+		      	<p style="font-size: 24px;">若依后台管理框架</p>
+		      	<p style="float: left; margin-top: 20px;">一直想做一款后台管理系统，看了很多优秀的开源项目但是发现没有合适自己的。
+		      		于是利用空闲休息时间开始自己写一套后台系统。如此有了若依管理系统。
+		      		她可以用于所有的Web应用程序，如网站管理后台，网站会员中心，CMS，CRM，OA等等
+		      		当然，您也可以对她进行深度定制，以做出更强系统。
+		      		所有前端后台代码封装过后十分精简易上手，出错概率低。
+		      		同时支持移动客户端访问。系统会陆续更新一些实用功能。
+		      	</p>
+		      	<p style="float: left; margin-top: 10px;">当前版本：v4.0.0</p>
+		      	<p style="float: left; width: 80px; height: 20px; background-color: #f8ac59; color: #FFFFFF;margin-left: -108px;margin-top: 40px; ">￥免费开源</p>
+		      	<button style="float: left;margin-top: 70px;margin-left: -108px;" class="layui-btn layui-btn-normal"><i style="widows: 16px; height: 11px;" class="layui-icon layui-icon-upload"></i>访问码云</button>
+		      	<button style="float: left;margin-top: 70px;" class="layui-btn layui-btn-primary"><i style="widows: 16px; height: 11px;" class="layui-icon layui-icon-home"></i>访问主页</button>
+		      </div>
+		    </div>
+		    <div class="layui-col-md4">
+		      <div class="grid-demo grid-demo-bg1">
+		      	<p style="font-size: 24px;">技术选型：</p>
+		      	<p style="float: none; margin-left: 30px; margin-top: 2px;">1.核心框架：Spring Boot。</p>
+		      	<p style="float: none; margin-left: 30px; margin-top: 2px;">2.安全框架：Apache Shiro。</p>
+		      	<p style="float: none; margin-left: 30px; margin-top: 2px;">3.模板引擎：Thymeleaf。</p>
+		      	<p style="float: none; margin-left: 30px; margin-top: 2px;">4.持久层框架：MyBatis。</p>
+		      	<p style="float: none; margin-left: 30px; margin-top: 2px;">5.定时任务:Quartz</p>
+		      	<p style="float: none; margin-left: 30px; margin-top: 2px;">6.数据库连接池：Druid</p>
+		      	<p style="float: none; margin-left: 30px; margin-top: 2px;">7.工具类：Fastjson。</p>
+		      	<p style="float: none; margin-left: 30px; margin-top: 2px;">8.更多……</p>
+		      </div>
+		    </div>
+  		</div>
+  		
+  		
+  		<div style="float: none; margin-top: -1300px;" class="layui-row layui-col-space10">
+		  <div class="layui-col-md4">
+		   	<div style="width: 375px; height: 215px; border-top: 5px solid #676a6c;">
+		   		<div style="width: 375px; height: 40px; color: #7f6a6c; float: left; margin-left: 10px;margin-top: 20px; font-size: 20px;">联系信息</div>
+		   		<div class="ibox-content">
+                        <p><i class="layui-icon layui-icon-release"></i> 官网：<a href="http://www.ruoyi.vip" target="_blank">http://www.ruoyi.vip</a>
+                        </p><br/>
+                        <p><i class="layui-icon layui-icon-login-qq"></i> QQ群：<s>满1389287</s> <s>满1679294</s> <s>满1529866</s> <s>满1772718</s> <s>满1366522</s> <a href="https://jq.qq.com/?_wv=1027&k=5Ofd4Pb" target="_blank">1382251</a>
+                        </p><br/>
+                        <p><i class="layui-icon layui-icon-login-qq"></i> 微信：<a href="javascript:;">/ *<span style="color: aquamarine;">若依</span></a>
+                        </p><br/>
+                        <p><i class="layui-icon layui-icon-chart-screen"></i> 支付宝：<a href="javascript:;" class="支付宝信息">/ *<span style="color: aquamarine;">若依</span></a>
+                        </p>
+                   </div>
+		   	</div>
+		  </div>
+		  <div class="layui-col-md4">
+		    <div style="width: 375px; height: 215px; border-top: 5px solid #676a6c;">
+		    	<div style="width: 375px; height: 40px; color: #7f6a6c; float: left; margin-left: 10px; margin-top: 20px; font-size: 20px;></div>
+		   		<div style="width: 375px; height: 40px;">更新日志</div>
+		   		<div class="layui-collapse">
+				  <div class="layui-colla-item">
+				    <h2 style="border-top: 1px solid #e7eaec;" class="layui-colla-title">v4.0.0<span style="float: right; color: red;">2019.08.08</span></h2>
+				    <div class="layui-colla-content layui-show">
+				    	1.代码生成支持自定义编辑属性<br/>
+						2.添加防止表单重复提交注解<br/>
+						3.添加后端校验（和前端保持一致）<br/>
+						4.新增同一个用户最大会话数控制<br/>
+						5.Excel导出子对象支持多个字段<br/>
+						6.定时任务支持静态调用和多参数<br/>
+						7.定时任务增加分组条件查询<br/>
+						8.字典类型增加任务分组数据<br/>
+						9.新增表格是否首次加载数据<br/>
+						10.新增parentTab选项卡可在同一页签打开
+				    </div>
+				  </div>
+				  <div class="layui-colla-item">
+				    <h2 class="layui-colla-title">v4.0.1<span style="float: right; color: red;">2019.08.09</span></h2>
+				    <div class="layui-colla-content layui-show">
+				    	1.新增内网不获取IP地址<br/>
+						2.新增cron表达式有效校验<br/>
+						3.定时任务新增详细信息<br/>
+						4.定时任务默认策略修改（不触发立即执行）<br/>
+						5.定时任务显示下一个执行周期<br/>
+						6.支持前端任意日期格式处理<br/>
+						7.上传头像删除多余提交按钮<br/>
+						8.表格增加行间隔色配置项<br/>
+						9.表格增加转义HTML字符串配置项<br/>
+						10.表格增加显示/隐藏指定列
+				    </div>
+				  </div>
+				  <div class="layui-colla-item">
+				    <h2 class="layui-colla-title">v4.0.2<span style="float: right; color: red;">2019.08.10</span></h2>
+				    <div class="layui-colla-content layui-show">
+				    	1.升级SpringBoot到最新版本<br/>
+						2.新增公告管理<br/>
+						3.表单校验示提体验优化<br/>
+						4.前端通用方法封装调整<br/>
+						5.前端去除js文件，合并到html<br/>
+						6.操作加载遮罩层<br/>
+						7.支持全屏模式操作<br/>
+						8.支持注解导出数据<br/>
+						9.系统支持多查询&下载<br/>
+						10.系统样式调整
+				    </div>
+				  </div>
+				  <div class="layui-colla-item">
+				    <h2 class="layui-colla-title">v4.0.2<span style="float: right; color: red;">2019.08.10</span></h2>
+				    <div class="layui-colla-content layui-show">
+				    	1.优化登录失败刷新验证码<br/>
+						2.新增用户登陆地址时间<br/>
+						3.修复ajax超时退出问题<br/>
+						4.新增html调用数据字典(若依首创)<br/>
+						5.调整系统部分样式<br/>
+						6.新增用户逻辑删除<br/>
+						7.新增管理员不允许删除修改<br/>
+						8.升级bootstrapTable到最新版本1.12.1<br/>
+						9.升级layer到最新版本3.1.1<br/>
+						10.修复页签Tab关闭问题
+				    </div>
+				  </div>
+				</div>
+		   	</div>
+		  </div>
+		  <div class="layui-col-md4">
+		    <div style="width: 375px; height: 240px; border-top: 5px solid #676a6c;">
+		   	<div style="float: left; margin-left: 10px; margin-top: 20px; font-size: 18px; width: 375px; height: 40px; border-bottom: 1px solid #e7eaec;">捐赠</div>
+		   	<div style="width: 360px; height: 50px; background-color: #fcf8e3; margin-top: 70px; margin-left: 10px; border: 1px solid #faebcc"><span style="float: left; margin-left: 20px; margin-top: 15px;">请作者喝杯咖啡（点击图片放大）</span></div>
+		   	<div style="width: 375px; height: 190px; margin-top: 20px;">
+		   		<div style="float: left; width: 187.5px; height: 190px; border-right: 1px solid #676a6c;">
+		   			<span style="float: left; font-size: 10px; margin-left: 20px;">支付宝扫一扫，</span>
+		   			<span style="float: left; color: blue; font-size: 10px;">向我付款</span>
+					<img style="float: left; width: 148px; height: 147px; margin-left: 15px; margin-top: 10px;" src="img/7.gif">
+		   		</div>
+		   		<div style="float: right; width: 187.5px; height: 190px;">
+		   			<span style="float: left; font-size: 10px; margin-left: 42px;">微信扫一扫转账</span>
+					<img style="float: left; width: 148px; height: 147px; margin-left: 15px; margin-top: 10px;" src="img/7.gif">
+		   		</div>
+		   	</div>
+		   	</div>
+		  </div>
+		</div>    
+    </div>
+    <div class="footer">
+        <div class="pull-right">© 2019 RuoYi Copyright </div>
+    </div>     
+</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.metisMenu.js"></script>
+	<script src="js/jquery.slimscroll.min.js"></script>
+	<script src="js/jquery.contextMenu.min.js"></script>
+	<script src="js/jquery.blockUI.js"></script>
+	<script src="js/layer.min.js"></script>
+	<script src="js/ry-ui.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/jquery.fullscreen.js"></script>
+	<script src="lay/modules/code.js"></script>
+	<script src="layui.js"></script>
+	<script>
+		layui.use('element', function(){
+  			var element = layui.element;
+  			var layui = layui.layui;
+		});
+	</script>
+</html>
