@@ -114,7 +114,7 @@
         </div>
     </nav>
 
-    <div style="height: 670px;" id="page-wrapper" class="gray-bg dashbard-1">
+    <div style="height: 770px;" id="page-wrapper" class="gray-bg dashbard-1">
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -156,7 +156,7 @@
             </button>
             <nav class="page-tabs menuTabs">
                 <div class="page-tabs-content">
-                    <a href="javascript:;" class="active menuTab" data-id="/system/main">首页</a>
+                    <a href="javascript:;" class="active menuTab" data-id="/system/main">用户管理</a>
                 </div>
             </nav>
             <button class="roll-nav roll-right tabRight">
@@ -166,15 +166,20 @@
         </div>
         <div>
         <a id="ax_close_max" class="ax_close_max" href="#" title="关闭全屏"> <i class="fa fa-times-circle-o"></i> </a>
-            <div style="float: left; width: 190px; height: 490px;">
+            <div id="tu2" style="float: left; width: 190px; height: 550px; background-color: #FFFFFF">
             	<div style="width: 190px; height: 50px; border-bottom: solid 1px #676a6c;">
             		<span style=" float: left; margin-left: 20px; margin-top: 16px; font-size: 18px;"><strong>组织机构</strong></span>
             		<i style="float: left; margin-left: 25px; margin-top: 18px;" class="layui-icon layui-icon-survey"></i>
             		<i style="float: left; margin-left: 8px;  margin-top: 18px;" class="layui-icon layui-icon-down"></i>
             		<i style="float: left; margin-left: 8px;  margin-top: 18px;" class="layui-icon layui-icon-refresh-3"></i>
             	</div>
-            	 <div id="test1"></div>
+            	
+            	 <div style="float: none;margin-top: 20px;" id="test1"></div>
+            	 
             </div>
+            <div id="tu1" style="float:left; margin-left: -1px; margin-top: 260px; height: 50px; width: 14px; border: 1px solid silver;">
+            		<i style="float: left; width: 2px; height: 2px; margin-top: 15px;" class="layui-icon layui-icon-triangle-r"></i>
+            	</div>
             <form class="layui-form" action="">
 	            <div style="float: right; width: 930px; height: 130px; margin-right: -3px; border-radius: 20px 20px 20px 20px; border: 1px solid #d4d4d5; margin-top: 15px;">
 	            	<div class="layui-form-item">
@@ -213,11 +218,11 @@
 				      </div>
 				    </div>
 	            </div>
-	            <button style="float: left; margin-top: -20px; margin-left: -190px; width: 60px; height: 40px;" type="button" class="layui-btn layui-btn-radius layui-btn-normal"><span style="float: left; width: 8px; height: 9px; font-size: 16px; margin-left: -14px; margin-top: -18px;" class="layui-icon layui-icon-search">搜索</span></button>
-	            <button style="float: left; margin-top: -20px; margin-left: -128px; width: 60px; height: 40px;" type="button" class="layui-btn layui-btn-radius layui-btn-warm"><span style="float: left; width: 8px; height: 9px; font-size: 16px; margin-left: -14px; margin-top: -18px;" class="layui-icon layui-icon-refresh-3">重置</span></button>
+	            <button style="float: left; margin-top: -20px; margin-left: -190px; width: 80px; height: 40px;" type="button" class="layui-btn layui-btn-radius layui-btn-normal"><span style="float: left; width: 8px; height: 9px; font-size: 16px; margin-left: -5px; margin-top: -18px;" class="layui-icon layui-icon-search">搜索</span></button>
+	            <button style="float: left; margin-top: -20px; margin-left: -105px; width: 80px; height: 40px;" type="button" class="layui-btn layui-btn-radius layui-btn-warm"><span style="float: left; width: 8px; height: 9px; font-size: 16px; margin-left: -5px; margin-top: -18px;" class="layui-icon layui-icon-refresh-3">重置</span></button>
             </form>
         </div>
-        <div style="width: 930px; height: 400px; border: 1px solid #d4d4d5; border-radius: 20px 20px 20px 20px; margin-top: 30px;">
+        <div style="width: 930px; height: 460px; border: 1px solid #d4d4d5; border-radius: 20px 20px 20px 20px; margin-top: 30px;">
         	<div style="float: left; margin-left: 18px; margin-top: 18px;" class="layui-btn-group">
 			  <button style="background-color: #1c84c6; border-radius: 10px 10px 10px 10px;" type="button" class="layui-btn"><span style="width: 10; height: 10px; font-size: 12px;" class="layui-icon layui-icon-add-1">新增</span></button>
 			  <button style="background-color: #6dd9c3; border-radius: 10px 10px 10px 10px;" type="button" class="layui-btn"><span style="width: 10; height: 10px; font-size: 12px;" class="layui-icon layui-icon-survey">修改</span></button>
@@ -239,8 +244,24 @@
 			    <i class="layui-icon">&#xe62a;</i>
 			  </button>
 			</div>
-			<div style="float: left; margin-top: -5px; margin-left: 15px;">
+			<!--<div style="float: left; margin-top: -5px; margin-left: 15px;">
 				<table class="layui-hide" id="demo"></table>
+				
+			</div>-->
+			<div style="float: none; margin-top: 70px; width: 910px; margin-left: 9px;">
+			<table  class="layui-hide" id="test" lay-filter="test"></table>
+			<script type="text/html" id="toolbarDemo">
+			  <div class="layui-btn-container">
+			    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+			    <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+			    <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+			  </div>
+			</script>
+			 
+			<script type="text/html" id="barDemo">
+			  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+			  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+			</script>
 			</div>
         </div>    
 	  <div style="float: left; margin-left:-360px;width: 1300px;" class="footer">
@@ -261,8 +282,28 @@
 	<script src="js/jquery.fullscreen.js"></script>
 	<script src="lay/modules/code.js"></script>
 	<script src="layui.js"></script>
+	<script src="lay/modules/code.js"></script>
 	<script>
 		layui.use('tree', function(){
+			 window.onload=function(){
+        		var a1=document.getElementById('tu2');
+		        var b1=document.getElementById('tu1');
+		        b1.onmouseover=function() {
+		            b1.style.background = "red";
+		        }
+		        b1.onmouseout=function() {
+		            b1.style.background = "#eeeeee";
+		        }
+		        b1.onclick=function(){
+		                if(a1.style.display=='block'){ // == 判断div.display是否为显示
+		                    a1.style.display='none'; //= 赋值也可了解成改变
+		                    }
+		                    else{
+		                        a1.style.display='block';
+		                    }
+		            }
+		        };
+
 		    var tree = layui.tree;
 		   
 		    //渲染
@@ -308,90 +349,157 @@
 			    elem: '#test3'
 			    ,type: 'month'
 			  });
-			 });
-			layui.use('table', function(){
-		  var table = layui.table;
-		  
-		  //展示已知数据
-		  table.render({
-		    elem: '#demo'
-		    ,page: { 
-			      layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
-			      ,curr: 1 //设定初始在第 1 页
-			      ,groups: 1 //只显示 1 个连续页码
-			      ,first: false //不显示首页
-			      ,last: false //不显示尾页
-			      
+			});
+//			layui.use('table', function(){
+//		  var table = layui.table;
+//		  
+//		  //展示已知数据
+//		  table.render({
+//		    elem: '#demo'
+//		    ,page: { 
+//			      layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+//			      ,curr: 1 //设定初始在第 1 页
+//			      ,groups: 1 //只显示 1 个连续页码
+//			      ,first: false //不显示首页
+//			      ,last: false //不显示尾页
+//			      
+//			    }
+//		    ,cols: [[ //标题栏
+//		      {field: 'id', title: 'ID', width: 80, sort: true}
+//		      ,{field: 'username', title: '用户名', width: 120}
+//		      ,{field: 'email', title: '邮箱', minWidth: 100}
+//		      ,{field: 'sign', title: '手机', minWidth: 100}
+//		      ,{field: 'sex', title: '性别', width: 80}
+//		      ,{field: 'city', title: '城市', width: 80}
+//		      ,{field: 'experience', title: '积分', width: 80, sort: true}
+//		      ,{field: 'experience', title: '操作', width: 190, sort: true}
+//		    ]]
+//		    ,data: [{
+//		      "id": "10001"
+//		      ,"username": "杜甫"
+//		      ,"email": "123@layui.com"
+//		      ,"sex": "男"
+//		      ,"city": "杭州"
+//		      ,"sign": "11111111111"
+//		      ,"experience": "116"
+//		      ,"ip": "192.168.0.8"
+//		    }, {
+//		      "id": "10002"
+//		      ,"username": "李白"
+//		      ,"email": "123@layui.com"
+//		      ,"sex": "男"
+//		      ,"city": "上海"
+//		      ,"sign": "2222222222"
+//		      ,"experience": "12"
+//		      ,"ip": "192.168.0.8"
+//		      ,"LAY_CHECKED": true
+//		    }, {
+//		      "id": "10003"
+//		      ,"username": "王勃"
+//		      ,"email": "123@layui.com"
+//		      ,"sex": "男"
+//		      ,"city": "北京"
+//		      ,"sign": "3333333333"
+//		      ,"experience": "65"
+//		      ,"ip": "192.168.0.8"
+//		    }, {
+//		      "id": "10004"
+//		      ,"username": "贤心"
+//		      ,"email": "123@layui.com"
+//		      ,"sex": "男"
+//		      ,"city": "广州"
+//		      ,"sign": "4444444444"
+//		      ,"experience": "666"
+//		      ,"ip": "192.168.0.8"
+//		    }, {
+//		      "id": "10005"
+//		      ,"username": "贤心"
+//		      ,"email": "123@layui.com"
+//		      ,"sex": "男"
+//		      ,"city": "深圳"
+//		      ,"sign": "5555555555"
+//		      ,"experience": "86"
+//		      ,"ip": "192.168.0.8"
+//		    },{
+//		      "id": "10008"
+//		      ,"username": "贤心"
+//		      ,"email": "123@layui.com"
+//		      ,"sex": "男"
+//		      ,"city": "重庆"
+//		      ,"sign": "8888888888"
+//		      ,"experience": "106"
+//		      ,"ip": "192.168.0.8"
+//		    }]	    
+//		    ,even: true
+//		    ,page: true //开启分页
+//		  });
+//		});
+		layui.use('table', function(){
+			  var table = layui.table;
+			  
+			  table.render({
+			    elem: '#test'
+			    ,url:'/test/table/demo1.json'
+			    ,toolbar: '#toolbarDemo'
+			    ,title: '用户数据表'
+			    ,cols: [[
+			      {type: 'checkbox', fixed: 'left'}
+			      ,{field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
+			      ,{field:'username', title:'用户名', width:120, edit: 'text'}
+			      ,{field:'email', title:'邮箱', width:130, edit: 'text', templet: function(res){
+			        return '<em>'+ res.email +'</em>'
+			      }}
+			      ,{field:'sex', title:'性别', width:80, edit: 'text', sort: true}
+			      ,{field:'city', title:'城市', width:100}
+			      ,{field:'sign', title:'签名'}
+			      ,{field:'experience', title:'积分', width:80, sort: true}
+			      ,{field:'ip', title:'IP', width:120}
+			      ,{field:'logins', title:'登入次数', width:100, sort: true}
+			      ,{field:'joinTime', title:'加入时间', width:120}
+			      ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+			    ]]
+			    ,page: true
+			  });
+//			  
+//			  //工具栏事件
+//			  table.on('toolbar(test)', function(obj){
+//			    var checkStatus = table.checkStatus(obj.config.id);
+//			    switch(obj.event){
+//			      case 'getCheckData':
+//			        var data = checkStatus.data;
+//			        layer.alert(JSON.stringify(data));
+//			      break;
+//			      case 'getCheckLength':
+//			        var data = checkStatus.data;
+//			        layer.msg('选中了：'+ data.length + ' 个');
+//			      break;
+//			      case 'isAll':
+//			        layer.msg(checkStatus.isAll ? '全选': '未全选')
+//			      break;
+//			    };
+//			  });
+//			})
+			  //监听行工具事件
+			  table.on('tool(test)', function(obj){
+			    var data = obj.data;
+			    //console.log(obj)
+			    if(obj.event === 'del'){
+			      layer.confirm('真的删除行么', function(index){
+			        obj.del();
+			        layer.close(index);
+			      });
+			    } else if(obj.event === 'edit'){
+			      layer.prompt({
+			        formType: 2
+			        ,value: data.email
+			      }, function(value, index){
+			        obj.update({
+			          email: value
+			        });
+			        layer.close(index);
+			      });
 			    }
-		    ,cols: [[ //标题栏
-		      {field: 'id', title: 'ID', width: 80, sort: true}
-		      ,{field: 'username', title: '用户名', width: 120}
-		      ,{field: 'email', title: '邮箱', minWidth: 100}
-		      ,{field: 'sign', title: '手机', minWidth: 100}
-		      ,{field: 'sex', title: '性别', width: 80}
-		      ,{field: 'city', title: '城市', width: 80}
-		      ,{field: 'experience', title: '积分', width: 80, sort: true}
-		      ,{field: 'experience', title: '操作', width: 190, sort: true}
-		    ]]
-		    ,data: [{
-		      "id": "10001"
-		      ,"username": "杜甫"
-		      ,"email": "123@layui.com"
-		      ,"sex": "男"
-		      ,"city": "杭州"
-		      ,"sign": "11111111111"
-		      ,"experience": "116"
-		      ,"ip": "192.168.0.8"
-		    }, {
-		      "id": "10002"
-		      ,"username": "李白"
-		      ,"email": "123@layui.com"
-		      ,"sex": "男"
-		      ,"city": "上海"
-		      ,"sign": "2222222222"
-		      ,"experience": "12"
-		      ,"ip": "192.168.0.8"
-		      ,"LAY_CHECKED": true
-		    }, {
-		      "id": "10003"
-		      ,"username": "王勃"
-		      ,"email": "123@layui.com"
-		      ,"sex": "男"
-		      ,"city": "北京"
-		      ,"sign": "3333333333"
-		      ,"experience": "65"
-		      ,"ip": "192.168.0.8"
-		    }, {
-		      "id": "10004"
-		      ,"username": "贤心"
-		      ,"email": "123@layui.com"
-		      ,"sex": "男"
-		      ,"city": "广州"
-		      ,"sign": "4444444444"
-		      ,"experience": "666"
-		      ,"ip": "192.168.0.8"
-		    }, {
-		      "id": "10005"
-		      ,"username": "贤心"
-		      ,"email": "123@layui.com"
-		      ,"sex": "男"
-		      ,"city": "深圳"
-		      ,"sign": "5555555555"
-		      ,"experience": "86"
-		      ,"ip": "192.168.0.8"
-		    },{
-		      "id": "10008"
-		      ,"username": "贤心"
-		      ,"email": "123@layui.com"
-		      ,"sex": "男"
-		      ,"city": "重庆"
-		      ,"sign": "8888888888"
-		      ,"experience": "106"
-		      ,"ip": "192.168.0.8"
-		    }]	    
-		    ,even: true
-		    ,page: true //开启分页
-		  });
-		});
+			  });
+			});
 	</script>
 </html>
