@@ -10,7 +10,7 @@
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/skins.css" rel="stylesheet">
 		<link href="css/ry-ui.css" rel="stylesheet">
-		<link href="css/layui.css" rel="stylesheet">
+		<link href="css/layui.css" rel="stylesheet" media="all">
 	</head>
 	<body class="fixed-sidebar full-height-layout gray-bg skin-blue">
 <div id="wrapper">
@@ -137,10 +137,11 @@
 								<i class="layui-icon layui-icon-username"></i> 个人中心</a>
 							</li>
 							<li>
-								<a onclick="resetPwd()" class="menuItem">
-								<i class="layui-icon layui-icon-password"></i> 修改密码</a>
+								<div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">
+								  <button style="background-color: #FFFFFF; color: black; " data-method="setTop" class="layui-btn">
+								  <i style="float: left; margin-left: 6px;" class="layui-icon layui-icon-auz"></i>修改密码</button>
+								</div>
 							</li>
-							<li class="divider"></li>
 							<li>
 								<a href="aaa.html">
 								<i class="layui-icon layui-icon-close-fill"></i> 退出登录</a>
@@ -326,8 +327,7 @@
         <div class="pull-right">© 2019 RuoYi Copyright </div>
     </div>     
 </div>
-	</body>
-	<script src="js/jquery.min.js"></script>
+	<!--<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.metisMenu.js"></script>
 	<script src="js/jquery.slimscroll.min.js"></script>
@@ -336,13 +336,100 @@
 	<script src="js/layer.min.js"></script>
 	<script src="js/ry-ui.js"></script>
 	<script src="js/index.js"></script>
-	<script src="js/jquery.fullscreen.js"></script>
-	<script src="lay/modules/code.js"></script>
-	<script src="layui.js"></script>
+	<script src="js/jquery.fullscreen.js"></script>-->
+	<script src="layui.js" charset="utf-8"></script>
+		
 	<script>
 		layui.use('element', function(){
   			var element = layui.element;
   			var layui = layui.layui;
-		});
+									});
+			layui.use('layer', function(){ //独立版的layer无需执行这一句
+			  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句	  
+			  //触发事件
+			  var active = {
+			    setTop: function(){
+			      var that = this; 
+			      //多窗口模式，层叠置顶
+			      layer.open({
+			        type: 1 //此处以iframe举例
+			        ,title: '重置密码'
+			        ,area: ['750px', '400px']
+			        ,shade: 0
+			        ,maxmin: true 
+			        ,content: '<form class="layui-form" action="" lay-filter="example"><div class="layui-form-item"><label style="width:100px" class="layui-form-label">登录名称</label><div class="layui-input-block"><input type="text" name="username" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" style="width:550px; margin-top:20px;"></div></div><div class="layui-form-item"><label class="layui-form-label">旧密码</label><div class="layui-input-block"><input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input" style="width:550px;"></div></div><div class="layui-form-item"><label class="layui-form-label">新密码</label><div class="layui-input-block"><input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input" style="width:550px;"></div></div><div class="layui-form-item"><label style="width:100px" class="layui-form-label">再次确认</label><div class="layui-input-block"><input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input" style="width:550px;"></div></div></form>'
+			        ,btn: ['<div lay-submit="" lay-filter="demo1">立即提交</div>', '全部关闭'] 
+			        ,yes: function(){
+			          layui.use(['form', 'layedit', 'laydate'], function(){
+						  var form = layui.form
+						  ,layer = layui.layer
+						  ,layedit = layui.layedit
+						  ,laydate = layui.laydate;
+						  
+						  //日期
+						  laydate.render({
+							elem: '#date'
+						  });
+						  laydate.render({
+							elem: '#date1'
+						  });
+						  
+						  //创建一个编辑器
+						  var editIndex = layedit.build('LAY_demo_editor');
+						 
+						  //自定义验证规则
+						  form.verify({
+							title: function(value){
+							  if(value.length < 5){
+								return '标题至少得5个字符啊';
+							  }
+							}
+							,pass: [
+							  /^[\S]{6,12}$/
+							  ,'密码必须6到12位，且不能出现空格'
+							]
+							,content: function(value){
+							  layedit.sync(editIndex);
+							}
+						  });
+						  
+						  //监听提交
+						  form.on('submit(demo1)', function(data){
+							layer.alert(JSON.stringify(data.field), {
+							  title: '最终的提交信息'
+							})
+							return false;
+						  });
+						 
+						  //表单初始赋值
+						  form.val('example', {
+							"username": "贤心" // "name": "value"
+							,"password": "123456"
+							,"interest": 1
+							,"like[write]": true //复选框选中状态
+							,"close": true //开关状态
+							,"sex": "女"
+							,"desc": "我爱 layui"
+						  })
+			
+						});
+			        }
+			        ,btn2: function(){
+			          layer.closeAll();
+			        }
+			      });
+			    }
+			    ,offset: function(othis){
+			      var type = othis.data('type')
+			      ,text = othis.text();
+			    }
+			  };
+			  
+			  $('#layerDemo .layui-btn').on('click', function(){
+			    var othis = $(this), method = othis.data('method');
+			    active[method] ? active[method].call(this, othis) : '';
+			  });
+			});
 	</script>
+	</body>
 </html>

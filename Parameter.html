@@ -284,74 +284,93 @@
 			      ,last: false //不显示尾页
 			   }
 		    ,cols: [[ //标题栏
-		      {field: 'id', title: 'ID', width: 80, sort: true}
-		      ,{field: 'username', title: '用户名', width: 120}
-		      ,{field: 'email', title: '邮箱', minWidth: 200}
-		      ,{field: 'checkbox', title: '角色状态', minWidth: 150}
-		      ,{field: 'sex', title: '性别', width: 80}
-		      ,{field: 'city', title: '城市', width: 80}
-		      ,{field: 'experience', title: '积分', width: 100, sort: true}
-		      ,{field: 'experience', title: '操作', width: 290, sort: true}
+		       {field: 'quanxuan', title: '<input type="checkbox" name="" title="" lay-skin="primary">',templet:'#test-table-operate-xuanxiang', width: 50}
+		      ,{field: 'id', title: 'ID', width: 80, sort: true}
+		      ,{field: 'username', title: '参数名称', width: 120}
+		      ,{field: 'email', title: '参数	键名', minWidth: 150}
+		      ,{field: 'checkbox', title: '参数键值', minWidth: 150}
+		      ,{field: 'sex', title: '系统内置',templet:'#test-table-operate-xitong',  width: 130}
+		      ,{field: 'city', title: '备注', width: 80}
+		      ,{field: 'experience', title: '创建时间', width: 160, sort: true}
+		      ,{field: 'caozuo', title: '操作', width: 180,templet:'#test-table-operate-caocao', sort: true}
 		    ]]
 		    ,data: [{
-		      "id": "10001"
+		      "quanxuan":""
+		      ,"id": "10001"
 		      ,"username": "杜甫"
 		      ,"email": "123@layui.com"
 		      ,"sex": "男"
 		      ,"city": "杭州"
 		      ,"checkbox": "11111111111"
-		      ,"experience": "116"
-		      ,"ip": "192.168.0.8"
+		      ,"experience": "2018-03-16 11:33:00"
+		      ,"caozuo": "192.168.0.8"
 		    }, {
-		      "id": "10002"
+		     "quanxuan":""
+		      ,"id": "10001"
 		      ,"username": "李白"
 		      ,"email": "123@layui.com"
 		      ,"sex": "男"
 		      ,"city": "上海"
 		      ,"checkbox": "2222222222"
-		      ,"experience": "12"
-		      ,"ip": "192.168.0.8"
+		      ,"experience": "2018-03-16 11:33:00"
+		      ,"caozuo": "192.168.0.8"
 		      ,"LAY_CHECKED": true
 		    }, {
-		      "id": "10003"
+		      "quanxuan":""
+		      ,"id": "10001"
 		      ,"username": "王勃"
 		      ,"email": "123@layui.com"
 		      ,"sex": "男"
 		      ,"city": "北京"
 		      ,"checkbox": "3333333333"
-		      ,"experience": "65"
-		      ,"ip": "192.168.0.8"
+		      ,"experience": "2018-03-16 11:33:00"
+		      ,"caozuo": "192.168.0.8"
 		    }, {
-		      "id": "10004"
+		      "quanxuan":""
+		      ,"id": "10001"
 		      ,"username": "贤心"
 		      ,"email": "123@layui.com"
 		      ,"sex": "男"
 		      ,"city": "广州"
 		      ,"checkbox": "4444444444"
-		      ,"experience": "666"
-		      ,"ip": "192.168.0.8"
+		      ,"experience": "2018-03-16 11:33:00"
+		      ,"caozuo": "192.168.0.8"
 		    }, {
-		      "id": "10005"
+		      "quanxuan":""
+		      ,"id": "10001"
 		      ,"username": "贤心"
 		      ,"email": "123@layui.com"
 		      ,"sex": "男"
 		      ,"city": "深圳"
 		      ,"checkbox": "5555555555"
-		      ,"experience": "86"
-		      ,"ip": "192.168.0.8"
+		      ,"experience": "2018-03-16 11:33:00"
+		      ,"caozuo": "192.168.0.8"
 		    },{
-		      "id": "10008"
+		      "quanxuan":""
+		      ,"id": "10001"
 		      ,"username": "贤心"
 		      ,"email": "123@layui.com"
 		      ,"sex": "男"
 		      ,"city": "重庆"
 		      ,"checkbox": "8888888888"
-		      ,"experience": "106"
-		      ,"ip": "192.168.0.8"
+		      ,"experience": "2018-03-16 11:33:00"
+		      ,"caozuo": "192.168.0.8"
 		    }]	    
 		    ,even: true
 		    ,page: true //开启分页
 		  });
 		});
 	</script>
+	<script type="text/html" id="test-table-operate-xuanxiang">
+        <input type="checkbox" name="" title="" lay-skin="primary">
+    </script>
+    </script>
+		<script type="text/html" id="test-table-operate-caocao">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+     </script>
+		<script type="text/html" id="test-table-operate-xitong">
+        <a style="border-radius: 20px 20px 20px 20px;" class="layui-btn layui-btn-xs" lay-event="edit">是</a>
+    </script>
 </html>

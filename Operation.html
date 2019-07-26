@@ -295,14 +295,15 @@
 			      ,last: false //不显示尾页
 			   }
 		    ,cols: [[ //标题栏
-		      {field: 'id', title: 'ID', width: 80, sort: true}
-		      ,{field: 'username', title: '用户名', width: 120}
-		      ,{field: 'email', title: '邮箱', minWidth: 200}
-		      ,{field: 'checkbox', title: '角色状态', minWidth: 150}
-		      ,{field: 'sex', title: '性别', width: 80}
-		      ,{field: 'city', title: '城市', width: 80}
-		      ,{field: 'experience', title: '积分', width: 100, sort: true}
-		      ,{field: 'experience', title: '操作', width: 290, sort: true}
+		       {field: 'quanxuan', title: '<input type="checkbox" name="" title="" lay-skin="primary">',templet:'#test-table-operate-xuanxiang', width: 50}
+		      ,{field: 'id', title: 'ID', width: 80, sort: true}
+		      ,{field: 'username', title: '日志编号', width: 120}
+		      ,{field: 'email', title: '系统模块', minWidth: 200}
+		      ,{field: 'checkbox', title: '操作类型', templet:'#test-table-operate-leix', minWidth: 150}
+		      ,{field: 'sex', title: '部门名称', width: 80}
+		      ,{field: 'city', title: '操作地点', width: 80}
+		      ,{field: 'experience', title: '操作状态', width: 100, templet:'#test-table-operate-caocaoa', sort: true}
+		      ,{field: 'caozuo', title: '操作', width: 240, templet:'#test-table-operate-caocao', sort: true}
 		    ]]
 		    ,data: [{
 		      "id": "10001"
@@ -365,4 +366,19 @@
 		  });
 		});
 	</script>
+	<script type="text/html" id="test-table-operate-xuanxiang">
+        <input type="checkbox" name="" title="" lay-skin="primary">
+    </script>
+    <script type="text/html" id="test-table-operate-caocaoa">
+        <a style="border-radius: 20px 20px 20px 20px; background-color: #007DDB;" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">成功</a>
+    </script>
+    </script>
+		<script type="text/html" id="test-table-operate-caocao">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    </script>
+		<script type="text/html" id="test-table-operate-leix">
+        <a style="border-radius: 20px 20px 20px 20px; background-color: coral;" class="layui-btn layui-btn-xs" lay-event="edit">生成代码</a>
+    </script>
 </html>

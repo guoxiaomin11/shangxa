@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/jquery.contextMenu.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/skins.css" rel="stylesheet">
+		<link href="css/ry-ui.css" rel="stylesheet">
+		<link href="css/layui.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/layui.css" media="all">
+  		<link rel="stylesheet" href="css/admin.css" media="all">
+	</head>
+	<body class="fixed-sidebar full-height-layout gray-bg skin-blue">
+<div id="wrapper">
+
+    <!--左侧导航开始-->
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="nav-close">
+            <i class="fa fa-times-circle"></i>
+        </div>
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="logo">
+				     <span class="logo-lg">RuoYi</span>
+            	</li>
+            	<li>
+            		<div class="user-panel">
+            			<a class="menuItem" title="个人中心" href=""> 
+            				<div class="hide">个人中心</div>
+					        <div class="pull-left image">
+		                    	<img src="img/profile.jpg" class="img-circle" alt="User Image">
+					        </div>
+				        </a>
+				        <div class="pull-left info">
+				          <p>admin</p>
+				          <a href="#"><i class="layui-icon layui-icon-circle-dot"></i> 在线</a>
+				          <a href="logout" style="padding-left:5px;"><i class="layui-icon layui-icon-close"></i> 注销</a>
+				        </div>
+				    </div>
+            	</li>
+                 <li class="active">
+                    <a href="index.html">
+                    	<i class="layui-icon layui-icon-home"></i>
+                    	<span class="nav-label">主页</span>
+                    	<span style="margin-left: 80px;" class="layui-icon layui-icon-triangle-d"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a class="menuItem" href="/system/main">了解若依</a></li>
+                    </ul>
+                </li>
+                <li>
+                	<a href="#">
+                		<i class="layui-icon layui-icon-set-fill"></i>
+                    	<span class="nav-label">系统管理</span> 
+                    	<span style="margin-left: 52px;" class="layui-icon layui-icon-triangle-d"></span>
+                	</a>
+                   <ul class="nav nav-second-level collapse">
+						<li>
+							<a class="" href="User.html">用户管理</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">角色管理</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">菜单管理</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">部门管理</a>	
+						</li>
+						<li>
+							<a class="menuItem" href="">岗位管理</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">字典管理</a>		
+						</li>
+						<li>
+							<a class="menuItem" href="">参数设置</a>	
+						</li>
+						<li>
+							<a class="menuItem" href="">通知公告</a>
+						</li>
+						<li>
+							<a href="#">日志管理<span style="margin-left: 52px;" class="layui-icon layui-icon-triangle-d"></span></a>
+							<ul class="nav nav-third-level">
+								<li><a class="menuItem" href="">操作日志</a></li>
+								<li><a class="menuItem" href="">登录日志</a></li>
+							</ul>
+						</li>
+					</ul>
+                </li>
+                <li>
+                	<a href="#">
+                		<i class="layui-icon layui-icon-video"></i>
+                    	<span class="nav-label">系统监控</span> 
+                    	<span style="margin-left: 52px;" class="layui-icon layui-icon-triangle-d"></span>
+                	</a>
+                   <ul class="nav nav-second-level collapse">
+						<li>
+							<a class="menuItem" href="">在线用户</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">定时任务</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">数据监控</a>
+						</li>
+						<li>
+							<a class="menuItem" href="">服务监控</a>
+						</li>
+					</ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="height: 1160px;" id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2" style="color:#FFF;" href="#" title="收起菜单">
+                    	<i class="layui-icon layui-icon-menu-fill"></i>
+                    </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right welcome-message">
+				    <li><a title="视频教程" href="http://doc.ruoyi.vip/#/standard/spjc" target="_blank"><i class="layui-icon layui-icon-video"></i> 视频教程</a></li>
+                    <li><a title="开发文档" href="http://doc.ruoyi.vip" target="_blank"><i class="layui-icon layui-icon-help"></i> 开发文档</a></li>
+	                <li><a title="全屏显示" href="javascript:void(0)" id="fullScreen"><i class="layui-icon layui-icon-snowflake"></i>全屏显示</a></li>
+                    <li class="dropdown user-menu">
+						<a href="javascript:void(0)" class="dropdown-toggle" data-hover="dropdown">
+							<img src="img/profile.jpg" class="user-image">
+							<span class="hidden-xs">若依</span>
+						</a>
+						<ul class="dropdown-menu">
+							<li class="mt5">
+								<a href="" class="menuItem">
+								<i class="layui-icon layui-icon-username"></i> 个人中心</a>
+							</li>
+							<li>
+								<a onclick="resetPwd()" class="menuItem">
+								<i class="layui-icon layui-icon-password"></i> 修改密码</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="aaa.html">
+								<i class="layui-icon layui-icon-close-fill"></i> 退出登录</a>
+							</li>
+						</ul>
+					</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row content-tabs">
+            <button class="roll-nav roll-left tabLeft">
+                <i class="layui-icon layui-icon-prev"></i>
+            </button>
+            <nav class="page-tabs menuTabs">
+                <div class="page-tabs-content">
+                    <a href="javascript:;" class="active menuTab" data-id="/system/main">个人资料</a>
+                </div>
+            </nav>
+            <button class="roll-nav roll-right tabRight">
+                <i class="layui-icon layui-icon-next"></i>
+            </button>
+            <a href="#" class="roll-nav roll-right tabReload"><i class="layui-icon layui-icon-refresh-3"></i> 刷新</a>
+        </div>
+        
+        <a id="ax_close_max" class="ax_close_max" href="#" title="关闭全屏"> <i class="fa fa-times-circle-o"></i> </a> 
+        	<div style="float: left; margin-left: 30px; margin-top: 10px; width: 530px; height: 30px;" class="layui-collapse" lay-filter="test">
+		  <div class="layui-colla-item">
+		    <h2 style="background-color: #FFFFFF; border-bottom: 1px solid lavender;" class="layui-colla-title">
+		    	<i style="float: right;" class="layui-icon layui-icon-close"></i>
+		    	<i style="float: right; margin-right: 10px;" class="layui-icon layui-icon-up"></i>CPU</h2>
+		    <div style="border: 1px solid lavender;" class="layui-colla-content">
+		      	<div style="">
+		      		<span style="float: left;">属性</span>
+		      		<span style="float: right; margin-right: 200px;">值</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">核心数</span>
+		      		<span style="float: right; margin-right: 200px;">2</span>
+		      		<hr/>
+		      	</div>
+		      	<div style=""><span style="float: left;">属性</span>
+		      		<span style="float: right; margin-right: 200px;">值</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">核心数</span>
+		      		<span style="float: right; margin-right: 200px;">2</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">属性</span>
+		      		<span style="float: right; margin-right: 200px;">值</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">核心数</span>
+		      		<span style="float: right; margin-right: 200px;">2</span>
+		      		<hr/>
+		      	</div>
+		    </div>
+		  </div>
+		</div>
+		<div style="float: left; margin-left: 600px; margin-top: -30px; width: 530px; height: 30px;" class="layui-collapse" lay-filter="test">
+		  <div class="layui-colla-item">
+		    <h2 style="background-color: #FFFFFF; border-bottom: 1px solid lavender;" class="layui-colla-title">
+		    	<i style="float: right;" class="layui-icon layui-icon-close"></i>
+		    	<i style="float: right; margin-right: 10px;" class="layui-icon layui-icon-up"></i>内存</h2>
+		    <div style="border: 1px solid lavender;" class="layui-colla-content">
+		      	<div style="">
+		      		<span style="float: left;">属性</span>
+		      		<span style="float: right; margin-right: 270px;">内存</span>
+		      		<span style="float: right; margin-right: -210px;">JVM</span><hr/>		      		
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">内存</span>
+		      		<span style="float: right; margin-right: 270px;">7.77GB</span>
+		      		<span style="float: right; margin-right: -230px;">888.8M</span><hr/>		      		
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">内存</span>
+		      		<span style="float: right; margin-right: 270px;">3.33GB</span>
+		      		<span style="float: right; margin-right: -230px;">666.6M</span><hr/>		      		
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">内存</span>
+		      		<span style="float: right; margin-right: 270px;">2.22GB</span>
+		      		<span style="float: right; margin-right: -230px;">555.5M</span><hr/>		      		
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">内存</span>
+		      		<span style="float: right; margin-right: 270px;">4.44GB</span>
+		      		<span style="float: right; margin-right: -230px;">333.3M</span><hr/>		      		
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">内存</span>
+		      		<span style="float: right; margin-right: 270px;">5.55GB</span>
+		      		<span style="float: right; margin-right: -230px;">999.9M</span><hr/>		      		
+		      	</div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div style="float: left; margin-left: 30px; margin-top: 260px; width: 1105px; height: 30px;" class="layui-collapse" lay-filter="test">
+		  <div class="layui-colla-item">
+		    <h2 style="background-color: #FFFFFF; border-bottom: 1px solid lavender;" class="layui-colla-title">
+		    	<i style="float: right;" class="layui-icon layui-icon-close"></i>
+		    	<i style="float: right; margin-right: 10px;" class="layui-icon layui-icon-up"></i>服务器信息</h2>
+		    <div style="border: 1px solid lavender;" class="layui-colla-content">
+		      	<div style="">
+		      		<span style="float: left;">服务器名称</span>
+		      		<span style="float: left; margin-left: 170px;">iz2zehi23fn35q4od1g81rz</span>
+		      		<span style="float: left; margin-left: 170px;">操作系统</span>
+		      		<span style="float: left; margin-left: 241px;">Linux</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">服务器IP</span>
+		      		<span style="float: left; margin-left: 184px;">172.17.237.75</span>
+		      		<span style="float: left; margin-left: 241px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div style="float: left; margin-left: 30px; margin-top: 120px; width: 1105px; height: 30px;" class="layui-collapse" lay-filter="test">
+		  <div class="layui-colla-item">
+		    <h2 style="background-color: #FFFFFF; border-bottom: 1px solid lavender;" class="layui-colla-title">
+		    	<i style="float: right;" class="layui-icon layui-icon-close"></i>
+		    	<i style="float: right; margin-right: 10px;" class="layui-icon layui-icon-up"></i>Java虚拟机信息  </h2>
+		    <div style="border: 1px solid lavender;" class="layui-colla-content">
+		      	<div style="">
+		      		<span style="float: left;">Java名称</span>
+		      		<span style="float: left; margin-left: 184px;">Java HotSpot(TM) 64-Bit Server VM</span>
+		      		<span style="float: left; margin-left: 241px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">启动时间</span>
+		      		<span style="float: left; margin-left: 184px;">2019-07-24 19:28:06</span>
+		      		<span style="float: left; margin-left: 336px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">安装路径</span>
+		      		<span style="float: left; margin-left: 184px;">/usr/java/jdk1.8.0_111/jre</span>
+		      		<span style="float: left; margin-left: 312px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">项目路径</span>
+		      		<span style="float: left; margin-left: 184px;">/home/ruoyi/projects/ruoyi</span>
+		      		<span style="float: left; margin-left: 307px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">Java名称</span>
+		      		<span style="float: left; margin-left: 184px;">abcdefghijklmn</span>
+		      		<span style="float: left; margin-left: 372px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">Java名称</span>
+		      		<span style="float: left; margin-left: 184px;">opqrstuvwxyz</span>
+		      		<span style="float: left; margin-left: 381px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div style="float: left; margin-left: 30px; margin-top: 260px; width: 1105px; height: 30px; background-color: #FFFFFF;" class="layui-collapse" lay-filter="test">
+		  <div class="layui-colla-item">
+		    <h2 style="background-color: #FFFFFF; border-bottom: 1px solid lavender;" class="layui-colla-title">
+		    	<i style="float: right;" class="layui-icon layui-icon-close"></i>
+		    	<i style="float: right; margin-right: 10px;" class="layui-icon layui-icon-up"></i>磁盘状态</h2>
+		    <div style="border: 1px solid lavender;" class="layui-colla-content">
+		      	<div style="">
+		      		<span style="float: left;">Java名称</span>
+		      		<span style="float: left; margin-left: 184px;">Java HotSpot(TM) 64-Bit Server VM</span>
+		      		<span style="float: left; margin-left: 241px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">启动时间</span>
+		      		<span style="float: left; margin-left: 184px;">2019-07-24 19:28:06</span>
+		      		<span style="float: left; margin-left: 336px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">安装路径</span>
+		      		<span style="float: left; margin-left: 184px;">/usr/java/jdk1.8.0_111/jre</span>
+		      		<span style="float: left; margin-left: 312px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">项目路径</span>
+		      		<span style="float: left; margin-left: 184px;">/home/ruoyi/projects/ruoyi</span>
+		      		<span style="float: left; margin-left: 307px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">Java名称</span>
+		      		<span style="float: left; margin-left: 184px;">abcdefghijklmn</span>
+		      		<span style="float: left; margin-left: 372px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		      	<div style="">
+		      		<span style="float: left;">Java名称</span>
+		      		<span style="float: left; margin-left: 184px;">opqrstuvwxyz</span>
+		      		<span style="float: left; margin-left: 381px;">系统架构</span>
+		      		<span style="float: left; margin-left: 241px;">amd64</span>
+		      		<hr/>
+		      	</div>
+		    </div>
+		</div>
+	</div>
+        <div style="float: left; margin-top: 262px; width: 1160px;" class="footer">
+	        <div class="pull-right">© 2019 RuoYi Copyright </div>
+	    </div>  
+	       
+</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.metisMenu.js"></script>
+	<script src="js/jquery.slimscroll.min.js"></script>
+	<script src="js/jquery.contextMenu.min.js"></script>
+	<script src="js/jquery.blockUI.js"></script>
+	<script src="js/layer.min.js"></script>
+	<script src="js/ry-ui.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/jquery.fullscreen.js"></script>
+	<script src="lay/modules/code.js"></script>
+	<script src="layui.js"></script>
+	<script>
+		layui.use(['element', 'layer'], function(){
+		  var element = layui.element();
+		  var layer = layui.layer;
+		  
+		  //监听折叠
+		  element.on('collapse(test)', function(data){
+		    layer.msg('展开状态：'+ data.show);
+		  });
+		});
+	</script>
+</html>

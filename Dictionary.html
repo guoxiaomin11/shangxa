@@ -284,67 +284,67 @@
 			      ,last: false //不显示尾页
 			   }
 		    ,cols: [[ //标题栏
-		      {field: 'id', title: 'ID', width: 80, sort: true}
+		       {field: 'quanxuan', title: '<input type="checkbox" name="" title="" lay-skin="primary">',templet:'#test-table-operate-xuanxiang', width: 50}
+		      ,{field: 'id', title: 'ID', width: 80, sort: true}
 		      ,{field: 'username', title: '用户名', width: 120}
-		      ,{field: 'email', title: '邮箱', minWidth: 200}
-		      ,{field: 'checkbox', title: '角色状态', minWidth: 150}
+		      ,{field: 'email', title: '词典类型', minWidth: 200}
+		      ,{field: 'checkbox', title: '状态', templet:'#test-table-operate-zhuangtai', minWidth: 150}
 		      ,{field: 'sex', title: '性别', width: 80}
-		      ,{field: 'city', title: '城市', width: 80}
-		      ,{field: 'experience', title: '积分', width: 100, sort: true}
-		      ,{field: 'experience', title: '操作', width: 290, sort: true}
+		      ,{field: 'shijian', title: '创建时间', width: 180, sort: true}
+		      ,{field: 'experience', title: '操作', templet:'#test-table-operate-caocao', width: 240, sort: true}
 		    ]]
 		    ,data: [{
-		      "id": "10001"
+		    	"quanxuan":""
+		      ,"id": "10001"
 		      ,"username": "杜甫"
-		      ,"email": "123@layui.com"
+		      ,"email": "sys_user_sex"
 		      ,"sex": "男"
-		      ,"city": "杭州"
 		      ,"checkbox": "11111111111"
 		      ,"experience": "116"
 		      ,"ip": "192.168.0.8"
 		    }, {
-		      "id": "10002"
+		       "quanxuan":""
+		      ,"id": "10002"
 		      ,"username": "李白"
-		      ,"email": "123@layui.com"
+		      ,"email": "sys_user_sex"
 		      ,"sex": "男"
-		      ,"city": "上海"
 		      ,"checkbox": "2222222222"
 		      ,"experience": "12"
 		      ,"ip": "192.168.0.8"
 		      ,"LAY_CHECKED": true
 		    }, {
-		      "id": "10003"
-		      ,"username": "王勃"
-		      ,"email": "123@layui.com"
+		       "quanxuan":""
+		      ,"id": "10002"
+		      ,"username": "杜甫"
+		      ,"email": "sys_user_sex"
 		      ,"sex": "男"
-		      ,"city": "北京"
 		      ,"checkbox": "3333333333"
 		      ,"experience": "65"
 		      ,"ip": "192.168.0.8"
 		    }, {
-		      "id": "10004"
-		      ,"username": "贤心"
-		      ,"email": "123@layui.com"
+		      "quanxuan":""
+		      ,"id": "10002"
+		      ,"username": "杜甫"
+		      ,"email": "sys_user_sex"
 		      ,"sex": "男"
-		      ,"city": "广州"
 		      ,"checkbox": "4444444444"
 		      ,"experience": "666"
 		      ,"ip": "192.168.0.8"
 		    }, {
-		      "id": "10005"
-		      ,"username": "贤心"
-		      ,"email": "123@layui.com"
+		       "quanxuan":""
+		      ,"id": "10002"
+		      ,"username": "杜甫"
+		      ,"email": "sys_user_sex"
 		      ,"sex": "男"
-		      ,"city": "深圳"
 		      ,"checkbox": "5555555555"
 		      ,"experience": "86"
 		      ,"ip": "192.168.0.8"
 		    },{
-		      "id": "10008"
-		      ,"username": "贤心"
-		      ,"email": "123@layui.com"
+		       "quanxuan":""
+		      ,"id": "10002"
+		      ,"username": "杜甫"
+		      ,"email": "sys_user_sex"
 		      ,"sex": "男"
-		      ,"city": "重庆"
 		      ,"checkbox": "8888888888"
 		      ,"experience": "106"
 		      ,"ip": "192.168.0.8"
@@ -354,4 +354,14 @@
 		  });
 		});
 	</script>
+		<script type="text/html" id="test-table-operate-caocao">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script type="text/html" id="test-table-operate-zhuangtai">
+        <a style="border-radius: 20px 20px 20px 20px;" class="layui-btn layui-btn-xs" lay-event="edit">正常</a>
+    </script>
+    <script type="text/html" id="test-table-operate-xuanxiang">
+        <input type="checkbox" name="" title="" lay-skin="primary">
+    </script>
 </html>
